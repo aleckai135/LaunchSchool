@@ -1,7 +1,6 @@
-my_dict = {
-'cat' : 'meows',
-'dog' : 'barks',
-'pig' : 'oinks'
-}
+import sys
+import flask
 
-print(my_dict)
+print(f"This is program {__file__}")
+print(f"The Python version is {sys.version}")
+print(f"The Flask version is {flask.__version__}")
