@@ -58,9 +58,3 @@ match operation:
 # Print the result to the terminal.
 
 prompt(f'The result is: {output}')
-
-balh blah blah ablahlahl
-asdf
-asdf
-asdf
-asdf
