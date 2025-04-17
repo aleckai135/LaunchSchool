@@ -1,91 +1,45 @@
-import json
-import subprocess
+def prompt(message):
+    print(f"==> {message}")
 
-# Open the JSON file for reading
-with open('calculator_messages.json', 'r') as file:
-    MESSAGES = json.load(file)
-
-# choose language
-while True:
-    print('Choose a language: English - "en" | Spanish - "es"')
-    LANG = input()
-
-    if LANG in ["en", "es"]:
-        break
-    print('\nWrong entry.')
-
-    # clears terminal
-def clear_screen():
-    subprocess.run('clear', shell=True, check = True)
-
-# function that includes unique intro
-def prompt(s):
-    message = MESSAGES[LANG][s]
-    print('\n==> ', message)
-
-# function that catches non-float
 def invalid_number(number_str):
     try:
-        float(number_str)
+        int(number_str)
     except ValueError:
         return True
 
     return False
 
-# Implementation of loop logic.
-while True:
-    clear_screen()
-    print(MESSAGES[LANG]['welcome'])
+prompt('Welcome to Calculator!')
 
-    # Ask the user for the first number.
-    prompt('first')
+prompt("What's the first number?")
+number1 = input()
+
+while invalid_number(number1):
+    prompt("Hmm... that doesn't look like a valid number.")
     number1 = input()
 
-    while invalid_number(number1):
-        prompt('invalid')
-        number1 = input()
+prompt("What's the second number?")
+number2 = input()
 
-    # Ask the user for the second number.
-    prompt('second')
+while invalid_number(number2):
+    prompt("Hmm... that doesn't look like a valid number.")
     number2 = input()
 
-    while invalid_number(number2):
-        prompt('invalid')
-        number2 = input()
+prompt("What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide")
+operation = input()
 
-    # Ask the user for an operation to perform.
-    prompt('operation')
+while operation not in ["1", "2", "3", "4"]:
+    prompt("You must choose 1, 2, 3, or 4")
     operation = input()
 
-    while operation not in ["1", "2", "3", "4"]:
-        prompt('inv_op')
-        operation = input()
+match operation:
+    case "1":
+        output = int(number1) + int(number2)
+    case "2":
+        output = int(number1) - int(number2)
+    case "3":
+        output = int(number1) * int(number2)
+    case "4":
+        output = int(number1) / int(number2)
 
-    # Perform the operation on the two numbers.
-    match operation:
-        case '1':
-            output = float(number1) + float(number2)
-        case '2':
-            output = float(number1) - float(number2)
-        case '3':
-            output = float(number1) * float(number2)
-        case '4':
-            output = float(number1) / float(number2)
-                
-
-    # Print the result to the terminal.
-    print()
-    prompt('result')
-    print(f'[{output}]')
-
-    # Ask user if they want to run it again.
-    prompt('another')
-
-    answer = input()
-
-    while answer not in ['y', 'Y', 'n', 'N']:
-        prompt('inv_choice')
-        answer = input()
-
-    if answer in ['n', 'N']:
-        break
+prompt(f"The result is {output}")
