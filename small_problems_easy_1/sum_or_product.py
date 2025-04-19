@@ -1,17 +1,14 @@
-# Write a program that asks the user to enter an integer greater than 0, 
-# then asks whether the user wants to determine the sum or the product of 
+# Write a program that asks the user to enter an integer greater than 0,
+# then asks whether the user wants to determine the sum or the product of
 # all numbers between 1 and the entered integer, inclusive.
 
-result = int(input('Please enter a number greater than 0: \n'))
-result = 0
-
-def sum(num):
-    for _ in range(0, num):
-        result += _
-        return result
+user_input = int(input('Please enter a number greater than 0: \n'))
 
 def product(num):
-    return
+    result = 1
+    for i in range(1, num + 1):
+        result *= i
+    return result
 
 print('\nCompute the sum or compute the product?')
 
@@ -20,13 +17,14 @@ while True:
 
     if operation in ('s', 'p'):
         if operation == 's':
-            print(f'\nThe sum of the integers between 1 and {result} is '
-                  f'{sum(result)}.')
+            sum_num = sum(range(user_input + 1))
+            print(f"""\nThe sum of the integers between 1
+                  and {user_input} is {sum_num}.""")
             break
 
         if operation == 'p':
-            print(f'\nThe sum of the integers between 1 and {result} is '
-                  f'{product(result)}.')
+            print(f"""\nThe product of the integers between 1 and
+                  {user_input} is {product(user_input)}.""")
             break
 
     print('\nWrong input.')
