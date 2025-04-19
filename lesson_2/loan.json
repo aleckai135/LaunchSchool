@@ -1,0 +1,20 @@
+{
+	"en": {
+		"welcome": "Welcome to the Loan Calculator!",
+		"loan_a": "Loan Amount",
+		"invalid": "Bad input, please try again.",
+		"loan_d": "Loan Duration in Months",
+		"apr_rate": "Interest Rate",
+		"another": "Would you like to do another calculation? y/n",
+		"invalid_another": "Please only type 'y' or 'n' !"
+	},
+	"es": {
+		"welcome": "¡Bienvenido a la calculadora de préstamos!",
+		"loan_a": "Monto del préstamo",
+		"invalid": "Mala entrada, por favor inténtalo de nuevo.",
+		"loan_d": "Duración del Préstamo en Meses",
+		"apr_rate": "Tasa de Interés",
+		"another": "¿Te gustaría hacer otro cálculo? y/n",
+		"invalid_another": "¡Por favor, escriba únicamente 'y' o 'n'!"
+	}
+}
