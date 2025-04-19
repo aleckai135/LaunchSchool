@@ -1,5 +1,7 @@
-# imports: json config,
+# imports: json config, sub and os for clear terminal
 import json
+import subprocess
+import os
 
 # prompt for language choice
 print("For English, type 'en' | Para español, escriba 'es'")
@@ -18,6 +20,10 @@ def fancy(key):
     message = messages(key, LANG)
     print(f'--> {message} <--')
 
+# function to clear screen
+def clear_screen():
+    subprocess.run('clear', shell=True, check = True)
+
 # function for loan formula
 def loan_calculation(a, d, r):
     try:
@@ -25,6 +31,9 @@ def loan_calculation(a, d, r):
     except(ZeroDivisionError):
         m = loan_a / loan_d
     return m
+
+# clear terminal before program start
+clear_screen()
 
 # introduction print
 fancy('welcome')
@@ -86,3 +95,5 @@ while True:
     if another == 'n':
         break
     print()
+
+    clear_screen()
