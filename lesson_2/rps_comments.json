@@ -2,6 +2,7 @@
         "en": {
                 "welcome": "Welcome to Rock Paper Scissors!",
                 "error": "Number must be between 1 and 3",
+                "error_type": "Only numbers, please.",
                 "decision_time": "Decision Time: Rock, Paper, or Scissors?",
                 "choices": "1 for Rock - 2 for Paper - 3 for Scissors",
                 "again": "Play Again? y/n",
@@ -11,11 +12,14 @@
                 "scissors": "Scissors",
                 "tie": "It's a tie.",
                 "win": "You win!",
-                "lose": "You lose."
+                "lose": "You lose.",
+                "user_choice": "You chose: ",
+                "opp_choice": "Opponent chose: "
         },
         "es": {
                 "welcome": "¡Bienvenido a Piedra, Papel o Tijera!",
                 "error": "El número debe estar entre 1 y 3",
+                "error_type": "Sólo números, por favor.",
                 "decision_time": "Momento de decisión: ¿Piedra, papel o tijera?",
                 "choices": "1 para Piedra - 2 para Papel - 3 para Tijeras",
                 "again": "¿Jugar de nuevo? y/n",
@@ -25,6 +29,8 @@
                 "scissors": "Tijeras",
                 "tie": "Es un empate.",
                 "win": "¡Tú ganas!",
-                "lose": "Pierdes."
+                "lose": "Pierdes.",
+                "user_choice": "Tú elegiste: ",
+                "opp_choice": "El oponente eligió: "
         }
 }
