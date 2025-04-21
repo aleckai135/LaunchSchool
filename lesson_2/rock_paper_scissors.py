@@ -31,14 +31,14 @@ def lang_pref():
     if LANG == 'en':
         rps_dict = {
             1: 'Rock',
-            2: 'Paper',
-            3: 'Scissors'
+            2: 'Scissors',
+            3: 'Paper'
         }
     if LANG == 'es':
         rps_dict = {
             1: 'Roca',
-            2: 'Papel',
-            3: 'Tijeras'
+            2: 'Tijeras',
+            3: 'Papel'
         }
     
     clear_screen()
@@ -77,6 +77,7 @@ def opponent_choice():
 
 # game operation algorithm
 def rps_game():
+    # Rock[1] | Scissors[2] | Paper[3]
     if (user == rps_dict[1]) and (opponent == rps_dict[1]):
         prompt('tie')
     elif (user == rps_dict[1]) and (opponent == rps_dict[2]):
