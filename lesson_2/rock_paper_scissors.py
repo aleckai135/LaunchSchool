@@ -3,6 +3,9 @@ import json
 import subprocess
 from random import randrange
 
+# Constants
+VALID_CHOICES = [1, 2, 3]
+
 # clear screen function
 def clear_screen():
     subprocess.run('clear', shell=True, check = True)
@@ -36,7 +39,7 @@ def lang_pref():
         }
     if LANG == 'es':
         rps_dict = {
-            1: 'Roca',
+            1: 'Piedra',
             2: 'Tijeras',
             3: 'Papel'
         }
@@ -48,7 +51,7 @@ def prompt(key):
     message = messages(key, LANG)
     print(f'>>> {message} <<<\n')
 
-# function for user choice
+# function for printing user choice
 def user_choice():
     prompt('choices')
     global user
@@ -58,7 +61,7 @@ def user_choice():
         try:
             user_choi = int(input())
 
-            if user_choi in [1, 2, 3]:
+            if user_choi in VALID_CHOICES:
                 user = rps_dict[user_choi]
                 print(f"\n>>> {messages('user_choice', LANG)}{user}  <<<")
                 break
@@ -67,7 +70,7 @@ def user_choice():
         except(ValueError, TypeError):
             prompt('error_type')
 
-# function for opponent choice
+# function for printing opponent choice
 def opponent_choice():
     opp_choice = randrange(1, 4)
 
@@ -75,27 +78,22 @@ def opponent_choice():
     opponent = rps_dict[opp_choice]
     print(f">>> {messages('opp_choice', LANG)}{opponent}  <<<")
 
-# game operation algorithm
+# game operation algorithm that prints the winner/loser/tie
 def rps_game():
+
     # Rock[1] | Scissors[2] | Paper[3]
-    if (user == rps_dict[1]) and (opponent == rps_dict[1]):
-        prompt('tie')
-    elif (user == rps_dict[1]) and (opponent == rps_dict[2]):
+    if ((user == rps_dict[1] and opponent == rps_dict[2]) or
+        (user == rps_dict[3] and opponent == rps_dict[1]) or
+        (user == rps_dict[2] and opponent == rps_dict[3])):
         prompt('win')
-    elif (user == rps_dict[1]) and (opponent == rps_dict[3]):
+
+    elif ((user == rps_dict[3] and opponent == rps_dict[2]) or
+          (user == rps_dict[2] and opponent == rps_dict[1]) or
+          (user == rps_dict[1] and opponent == rps_dict[3])):
         prompt('lose')
-    elif (user == rps_dict[2]) and (opponent == rps_dict[2]):
+
+    else:
         prompt('tie')
-    elif (user == rps_dict[2]) and (opponent == rps_dict[1]):
-        prompt('lose')
-    elif (user == rps_dict[2]) and (opponent == rps_dict[3]):
-        prompt('win')
-    elif (user == rps_dict[3]) and (opponent == rps_dict[3]):
-        prompt('tie')
-    elif (user == rps_dict[3]) and (opponent == rps_dict[1]):
-        prompt('win')
-    elif (user == rps_dict[3]) and (opponent == rps_dict[2]):
-        prompt('lose')
 
 # function to prompt user for another game
 def another():
@@ -138,6 +136,7 @@ def main():
         # prompt user for another game
         another()
 
+        # break out of loop condition
         if answer == 'n':
             break
 
