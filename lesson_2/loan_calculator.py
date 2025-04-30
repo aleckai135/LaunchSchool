@@ -1,7 +1,6 @@
 # imports: json config, sub and os for clear terminal
 import json
 import subprocess
-import os
 
 # prompt for language choice
 print("For English, type 'en' | Para español, escriba 'es'")
@@ -44,12 +43,15 @@ while True:
 
     # loan amount validation - variable loan_a
     while True:
+        fancy('loan_a')
+
         try:
-            fancy('loan_a')
             loan_a = int(input('$'))
+
             if loan_a <= 0:
                 raise ValueError
             break
+
         except(TypeError, ValueError):
             print('\n' + MESSAGES[LANG]['invalid'] + '\n')
 
@@ -93,6 +95,7 @@ while True:
         fancy('invalid_another')
 
     if another == 'n':
+        clear_screen()
         break
     print()
 
